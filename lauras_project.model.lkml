@@ -6,12 +6,12 @@ include: "*.view"
 # include all the dashboards
 include: "*.dashboard"
 
-datagroup: lauras_projecrt_default_datagroup {
+datagroup: lauras_project_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
 
-persist_with: lauras_projecrt_default_datagroup
+persist_with: lauras_project_default_datagroup
 
 explore: events {
   join: users {
