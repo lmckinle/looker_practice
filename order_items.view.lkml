@@ -33,13 +33,28 @@ view: order_items {
     sql: ${TABLE}.returned_at ;;
   }
 
+  dimension: expensive {
+    type: yesno
+    sql:  ${sale_price} > 25 ;;
+  }
+
   dimension: sale_price {
     type: number
     sql: ${TABLE}.sale_price ;;
   }
 
+  dimension: profit {
+    type:  number
+    sql:  ${sale_price} - ${inventory_items.cost};;
+  }
+
   measure: count {
     type: count
     drill_fields: [id, inventory_items.id, orders.id]
+  }
+
+  measure: average_profit {
+    type: average
+    sql:  ${profit} ;;
   }
 }
