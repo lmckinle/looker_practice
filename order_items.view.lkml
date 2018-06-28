@@ -57,4 +57,9 @@ view: order_items {
     type: average
     sql:  ${profit} ;;
   }
+
+  measure: total_orders {
+    type:  count_distinct
+    sql:  ${order_id} ;;
+  }
 }
