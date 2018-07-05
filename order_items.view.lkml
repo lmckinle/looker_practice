@@ -33,7 +33,8 @@ view: order_items {
     sql: ${TABLE}.returned_at ;;
   }
 
-  dimension: expensive {
+  dimension: is_expensive {
+    description: "Returns 'Yes' if product has a sale price above $25"
     type: yesno
     sql:  ${sale_price} > 25 ;;
   }
@@ -45,6 +46,7 @@ view: order_items {
 
   dimension: profit {
     type:  number
+    value_format_name: usd
     sql:  ${sale_price} - ${inventory_items.cost};;
   }
 
@@ -55,6 +57,7 @@ view: order_items {
 
   measure: average_profit {
     type: average
+    value_format_name: usd
     sql:  ${profit} ;;
   }
 
