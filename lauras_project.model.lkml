@@ -63,9 +63,13 @@ explore: orders {
   }
 }
 
-explore: products {}
+explore: products {
+  hidden: yes
+}
 
-explore: schema_migrations {}
+explore: schema_migrations {
+  hidden:  yes
+}
 
 explore: user_data {
   join: users {
