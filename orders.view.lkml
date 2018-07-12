@@ -63,11 +63,13 @@ view: orders {
 
   measure: total_order_profit {
     type: sum
+    value_format_name: usd
     sql: ${order_profit};;
   }
 
   measure: average_order_profit {
     type: average
+    value_format_name: usd
     sql: ${order_profit} ;;
   }
 }
