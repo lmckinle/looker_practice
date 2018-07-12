@@ -1,6 +1,6 @@
 - dashboard: lauras_practice
 #----------------------------------
-  title: Lauras Practice
+  title: "Laura's Practice Dashboard"
   layout: tile
   tile_size: 100
 #----------------------------------
@@ -9,7 +9,7 @@
 #----------------------------------
   elements:
 
-  - title: Total Orders
+  - title: "Total Orders"
     name: Total Orders
     model: lauras_project
     explore: order_items
@@ -34,7 +34,7 @@
     width: 8
     height: 6
 
-  - title: Average Order Profit
+  - title: "Average Order Profit"
     name: Average Order Profit
     model: lauras_project
     explore: order_items
@@ -58,7 +58,7 @@
     width: 8
     height: 6
 
-  - title: First Time Purchasers
+  - title: "First Time Purchasers"
     name: First Time Purchasers
     model: lauras_project
     explore: orders
