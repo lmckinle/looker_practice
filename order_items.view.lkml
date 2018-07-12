@@ -41,10 +41,11 @@ view: order_items {
 
   dimension: sale_price {
     type: number
+    value_format_name: usd
     sql: ${TABLE}.sale_price ;;
   }
 
-  dimension: profit {
+  dimension: line_item_profit {
     type:  number
     value_format_name: usd
     sql:  ${sale_price} - ${inventory_items.cost};;
@@ -55,10 +56,18 @@ view: order_items {
     drill_fields: [id, inventory_items.id, orders.id]
   }
 
-  measure: average_profit {
+  measure: total_item_profit {
+    description: "The profit summed across all line items within an order"
+    type: sum
+    value_format_name: usd
+    sql:  ${line_item_profit} ;;
+  }
+
+  measure: average_item_profit {
+    description: "The profit averaged across all line items within an order"
     type: average
     value_format_name: usd
-    sql:  ${profit} ;;
+    sql:  ${line_item_profit} ;;
   }
 
   measure: total_orders {
