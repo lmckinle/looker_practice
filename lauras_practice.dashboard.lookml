@@ -1,8 +1,7 @@
 - dashboard: lauras_practice
 #----------------------------------
   title: "Laura's Practice Dashboard"
-  layout: tile
-  tile_size: 100
+  layout: newspaper
 #----------------------------------
   filters:
   - name: date
