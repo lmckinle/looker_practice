@@ -5,6 +5,16 @@
   tile_size: 100
 #----------------------------------
   filters:
+  - name: date
+    title: "Date"
+    type: date_filter
+    default_value: Last 90 Days
+
+  - name: state
+    title: 'State / Region'
+    type: field_filter
+    explore: users
+    field: users.state
 
 #----------------------------------
   elements:
@@ -16,14 +26,8 @@
     type: single_value
     fields:
     - orders.count
-    filters:
-      orders.created_date: 90 days
     sorts:
     - orders.count desc
-    limit: 500
-    query_timezone: America/Los_Angeles
-    custom_color_enabled: false
-    custom_color: forestgreen
     show_single_value_title: true
     show_comparison: false
     comparison_type: value
@@ -41,12 +45,6 @@
     type: single_value
     fields:
     - orders.average_order_profit
-    filters:
-      orders.created_date: 90 days
-    limit: 500
-    query_timezone: America/Los_Angeles
-    custom_color_enabled: false
-    custom_color: forestgreen
     show_single_value_title: true
     show_comparison: false
     comparison_type: value
@@ -67,13 +65,8 @@
     - orders.count
     filters:
       orders.is_first_order: 'Yes'
-      orders.created_date: 90 days
     sorts:
     - orders.count desc
-    limit: 500
-    query_timezone: America/Los_Angeles
-    custom_color_enabled: false
-    custom_color: forestgreen
     show_single_value_title: true
     show_comparison: false
     comparison_type: value
