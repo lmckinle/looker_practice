@@ -56,6 +56,22 @@ view: orders {
     sql: ${order_income} - ${order_cost};;
   }
 
+  dimension: order_sequence {
+    type: number
+    sql: (SELECT COUNT(*)
+          FROM orders o
+          WHERE o.id < ${TABLE}.id
+          AND o.user_id = ${TABLE}.user_id) + 1 ;;
+  }
+
+  dimension: is_first_order {
+    type: yesno
+    sql: ${order_sequence} = 1 ;;
+  }
+
+
+  ## MEASURES ##
+
   measure: count {
     type: count
     drill_fields: [id, users.first_name, users.last_name, users.id, order_items.count]
