@@ -2,7 +2,6 @@ view: orders {
   sql_table_name: demo_db.orders ;;
 
   dimension: id {
-    hidden:  yes
     primary_key: yes
     type: number
     sql: ${TABLE}.id ;;
@@ -33,7 +32,7 @@ view: orders {
     sql: ${TABLE}.user_id ;;
   }
 
-  dimension: amount_of_order {
+  dimension: order_income {
     type: number
     value_format_name: usd
     sql: (SELECT SUM(order_items.sale_price)
@@ -53,8 +52,8 @@ view: orders {
 
   dimension: order_profit {
     type:  number
-    value_format_name: decimal_2
-    sql: ${amount_of_order} - ${order_cost};;
+    value_format_name: usd
+    sql: ${order_income} - ${order_cost};;
   }
 
   measure: count {
@@ -64,11 +63,11 @@ view: orders {
 
   measure: total_order_profit {
     type: sum
-    sql: ${TABLE}.order_profit ;;
+    sql: ${order_profit};;
   }
 
   measure: average_order_profit {
     type: average
-    sql: ${TABLE}.order_profit ;;
+    sql: ${order_profit} ;;
   }
 }
