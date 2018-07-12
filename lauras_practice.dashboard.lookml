@@ -25,6 +25,9 @@
     type: single_value
     fields:
     - orders.count
+    listen:
+      date: orders.created_date
+      state: users.state
     sorts:
     - orders.count desc
     show_single_value_title: true
@@ -44,6 +47,9 @@
     type: single_value
     fields:
     - orders.average_order_profit
+    listen:
+      date: orders.created_date
+      state: users.state
     show_single_value_title: true
     show_comparison: false
     comparison_type: value
@@ -64,6 +70,9 @@
     - orders.count
     filters:
       orders.is_first_order: 'Yes'
+    listen:
+      date: orders.created_date
+      state: users.state
     sorts:
     - orders.count desc
     show_single_value_title: true
