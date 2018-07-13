@@ -127,7 +127,7 @@
     hidden_series: []
     colors: ['palette: Looker Classic']
     series_colors: {}
-    x_axis_label: '"#"'
+    x_axis_label: ''
     hide_legend: true
     y_axes: [{label: "#", orientation: left, series: [{id: Accessories - products.count,
             name: Accessories, axisId: products.count}, {id: Blazers & Jackets - products.count,
