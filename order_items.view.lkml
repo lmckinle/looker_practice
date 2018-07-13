@@ -70,6 +70,12 @@ view: order_items {
     sql:  ${line_item_profit} ;;
   }
 
+  measure: total_sale_price {
+    type: sum
+    value_format_name: usd
+    sql: ${sale_price} ;;
+  }
+
   measure: total_orders {
     type:  count_distinct
     sql:  ${order_id} ;;
