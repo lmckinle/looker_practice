@@ -142,3 +142,51 @@
     x_axis_datetime_tick_count: 3
     trend_lines: []
     reference_lines: []
+
+  - name: Sales by Date
+    title: "Sales $ by Date"
+    model: lauras_project
+    explore: order_items
+    type: looker_column
+    fields: [orders.created_date, order_items.total_sale_price]
+    fill_fields: [orders.created_date]
+    listen:
+      date: orders.created_date
+      state: users.state
+    sorts: [orders.created_date desc]
+    query_timezone: America/Los_Angeles
+    stacking: ''
+    show_value_labels: false
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: true
+    point_style: none
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    ordering: none
+    totals_color: "#808080"
+    show_null_points: true
+    interpolation: linear
+    series_types: {}
+    colors: ['palette: Looker Classic']
+    series_colors: {}
+    x_axis_datetime_label: "%B %d"
+    x_axis_datetime_tick_count: 8
+    y_axes: [{label: Total Sales $, orientation: left, series: [{id: order_items.total_sale_price,
+            name: Order Items Total Sale Price, axisId: order_items.total_sale_price}],
+        showLabels: true, showValues: true, unpinAxis: false, tickDensity: default,
+        tickDensityCustom: 5, type: linear}]
+    reference_lines: [{reference_type: range, line_value: mean, range_start: max, range_end: median,
+        margin_top: deviation, margin_value: mean, margin_bottom: deviation, label_position: right,
+        color: "#e37612", label: Above Average Sales}, {reference_type: line, line_value: median,
+        range_start: max, range_end: min, margin_top: deviation, margin_value: mean,
+        margin_bottom: deviation, label_position: right, color: "#e37612", label: Median}]
