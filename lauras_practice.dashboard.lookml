@@ -1,7 +1,20 @@
 - dashboard: lauras_practice
 #----------------------------------
   title: "Laura's Practice Dashboard"
-  layout: newspaper
+  layout: grid
+  rows:
+    - elements: [Total_Orders, Avg_Order_Profit, First_Time_Purchasers]
+      height: 220
+    - elements: [Orders_by_Day_and_Category, Sales_by_Date]
+      height: 400
+    - elements: [Top_Zips]
+      height: 400
+    #- elements: [sales_by_date_and_category, top_10_brands]
+      #height: 400
+    #- elements: [layer_cake_cohort]
+      #height: 400
+    #- elements: [customer_cohort]
+      #height: 400
 #----------------------------------
   filters:
   - name: date
@@ -18,8 +31,8 @@
 #----------------------------------
   elements:
 
-  - title: "Total Orders"
-    name: Total Orders
+  - name: Total_Orders
+    title: "Total Orders"
     model: lauras_project
     explore: order_items
     type: single_value
@@ -40,8 +53,8 @@
     width: 8
     height: 6
 
-  - title: "Average Order Profit"
-    name: Average Order Profit
+  - name: Avg_Order_Profit
+    title: "Average Order Profit"
     model: lauras_project
     explore: order_items
     type: single_value
@@ -61,8 +74,8 @@
     width: 8
     height: 6
 
-  - title: "First Time Purchasers"
-    name: First Time Purchasers
+  - name: First_Time_Purchasers
+    title: "First Time Purchasers"
     model: lauras_project
     explore: orders
     type: single_value
@@ -85,8 +98,8 @@
     width: 8
     height: 6
 
-  - title: "Orders by Day and Category"
-    name: Orders by Day and Category
+  - name: Orders_by_Day_and_Category
+    title: "Orders by Day and Category"
     model: lauras_project
     explore: order_items
     type: looker_area
@@ -143,7 +156,7 @@
     trend_lines: []
     reference_lines: []
 
-  - name: Sales by Date
+  - name: Sales_by_Date
     title: "Sales $ by Date"
     model: lauras_project
     explore: order_items
@@ -191,8 +204,8 @@
         range_start: max, range_end: min, margin_top: deviation, margin_value: mean,
         margin_bottom: deviation, label_position: right, color: "#e37612", label: Median}]
 
-  - name: "Top Zip Codes by Items Ordered"
-    title: Top Zip Codes by Items Ordered
+  - name: Top_Zips
+    title: "Top Zip Codes by Items Ordered"
     model: lauras_project
     explore: order_items
     type: looker_geo_coordinates
