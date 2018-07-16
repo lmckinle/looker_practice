@@ -190,3 +190,48 @@
         color: "#e37612", label: Above Average Sales}, {reference_type: line, line_value: median,
         range_start: max, range_end: min, margin_top: deviation, margin_value: mean,
         margin_bottom: deviation, label_position: right, color: "#e37612", label: Median}]
+
+  - name: "Top Zip Codes by Items Ordered"
+    title: Top Zip Codes by Items Ordered
+    model: lauras_project
+    explore: order_items
+    type: looker_geo_coordinates
+    fields: [order_items.count, users.zip]
+    listen:
+      date: orders.created_date
+      state: users.state
+    sorts: [order_items.count desc]
+    query_timezone: America/Los_Angeles
+    map: usa
+    map_projection: ''
+    show_view_names: true
+    quantize_colors: false
+    barColors: [red, blue]
+    groupBars: true
+    labelSize: 10pt
+    showLegend: true
+    show_value_labels: true
+    font_size: 12
+    map_plot_mode: points
+    heatmap_gridlines: false
+    heatmap_gridlines_empty: false
+    heatmap_opacity: 0.5
+    show_region_field: true
+    draw_map_labels_above_data: true
+    map_tile_provider: light
+    map_position: fit_data
+    map_scale_indicator: 'off'
+    map_pannable: true
+    map_zoomable: true
+    map_marker_type: circle
+    map_marker_icon_name: default
+    map_marker_radius_mode: proportional_value
+    map_marker_units: meters
+    map_marker_proportional_scale_type: linear
+    map_marker_color_mode: fixed
+    show_legend: true
+    quantize_map_value_colors: false
+    reverse_map_value_colors: false
+    series_types: {}
+    point_color: "#651F81"
+    point_radius: 3
