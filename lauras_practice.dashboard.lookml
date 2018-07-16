@@ -185,7 +185,7 @@
             name: Order Items Total Sale Price, axisId: order_items.total_sale_price}],
         showLabels: true, showValues: true, unpinAxis: false, tickDensity: default,
         tickDensityCustom: 5, type: linear}]
-    reference_lines: [{reference_type: range, line_value: mean, range_start: max, range_end: median,
+    reference_lines: [{reference_type: range, line_value: mean, range_start: max, range_end: mean,
         margin_top: deviation, margin_value: mean, margin_bottom: deviation, label_position: right,
         color: "#e37612", label: Above Average Sales}, {reference_type: line, line_value: median,
         range_start: max, range_end: min, margin_top: deviation, margin_value: mean,
