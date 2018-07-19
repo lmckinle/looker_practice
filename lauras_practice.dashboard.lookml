@@ -11,8 +11,8 @@
       height: 400
     - elements: [Top_15_Brands]
       height: 400
-    #- elements: [layer_cake_cohort]
-      #height: 400
+    - elements: [user_signup_cohort_orders]
+      height: 400
     #- elements: [customer_cohort]
       #height: 400
 #----------------------------------
@@ -203,3 +203,23 @@
     enable_conditional_formatting: false
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
+
+  - name: user_signup_cohort_orders
+    title: "Cohort - Orders by User Signup Month"
+    model: lauras_project
+    explore: order_items
+    type: looker_area
+    fields: [orders.created_month, users.created_month, orders.count]
+    pivots: [users.created_month]
+    fill_fields: [orders.created_month, users.created_month]
+    filters:
+      orders.created_date: 12 months ago for 12 months
+      users.created_month: 12 months ago for 12 months
+    listen:
+      state: users.state
+    sorts: [orders.created_month, users.created_month 0]
+    limit: 15
+    column_limit: 50
+    query_timezone: America/Los_Angeles
+    stacking: norma
+    colors: ['palette: Fuchsia to Green']
