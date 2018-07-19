@@ -7,7 +7,7 @@
       height: 220
     - elements: [Orders_by_Day_and_Category, Sales_by_Date]
       height: 400
-    - elements: [Top_Zips]
+    - elements: [Top_Zips, Top_States]
       height: 400
     #- elements: [sales_by_date_and_category, top_10_brands]
       #height: 400
@@ -166,3 +166,17 @@
     series_types: {}
     point_color: "#651F81"
     point_radius: 3
+
+  - name: Top_States
+    title: "Sales by State"
+    model: lauras_project
+    explore: order_items
+    type: looker_geo_choropleth
+    fields: [order_items.count, users.state]
+    sorts: [order_items.count desc]
+    listen:
+      date: orders.created_date
+      state: users.state
+    limit: 500
+    map: usa
+    colors: ["#651F81"]
