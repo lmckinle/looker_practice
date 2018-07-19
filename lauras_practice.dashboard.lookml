@@ -9,8 +9,8 @@
       height: 400
     - elements: [Top_Zips, Top_States]
       height: 400
-    #- elements: [sales_by_date_and_category, top_10_brands]
-      #height: 400
+    - elements: [Top_15_Brands]
+      height: 400
     #- elements: [layer_cake_cohort]
       #height: 400
     #- elements: [customer_cohort]
@@ -180,3 +180,26 @@
     limit: 500
     map: usa
     colors: ["#651F81"]
+
+  - name: Top_15_Brands
+    title: "Top 15 Brands"
+    model: lauras_project
+    explore: order_items
+    type: table
+    fields: [products.brand, order_items.count, orders.count, order_items.total_sale_price, orders.average_order_profit]
+    sorts: [order_items.count desc]
+    limit: 15
+    listen:
+      date: orders.created_date
+      state: users.state
+    query_timezone: America/Los_Angeles
+    show_view_names: true
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: editable
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
