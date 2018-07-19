@@ -221,5 +221,5 @@
     limit: 15
     column_limit: 50
     query_timezone: America/Los_Angeles
-    stacking: norma
+    stacking: normal
     colors: ['palette: Fuchsia to Green']
